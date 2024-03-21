@@ -1,4 +1,4 @@
-import {login_auth} from "../Services/firebase.js"
+import {login_auth} from "Services/firebase.js"
 
 const evento = document.getElementById("login_btn")
 
