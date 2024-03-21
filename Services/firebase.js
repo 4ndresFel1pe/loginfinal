@@ -29,7 +29,7 @@ export function userstate() {
             const uid = user.uid;
             console.log(uid);
         } else {
-            window.location.href = '../Login.html';
+            window.location.href = '../index.html';
         }
     });
 }
