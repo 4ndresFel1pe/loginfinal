@@ -1,4 +1,4 @@
-import {login_auth} from "Services/firebase.js"
+import {login_auth} from "../Services/firebase.js"
 
 const evento = document.getElementById("login_btn")
 
@@ -12,7 +12,7 @@ async function validar(){
 
     if(verificar != null){
         alert("Usuario autenticado: " + email)
-        window.location.href = "Templates/home.html"
+        window.location.href = "../Templates/home.html"
     }else{
         console.log("Sesion "+ email + " not validation")
         alert("Error de usuario verifique usuario y/o contraseña")
