@@ -1,6 +1,12 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js';
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
+import { 
+    getAuth, 
+    signInWithEmailAndPassword, 
+    signOut, 
+    onAuthStateChanged,
+    createUserWithEmailAndPassword
+     } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyB7ylgSsGv-i0_OR00x5pSyhyuiqMHRCls",
@@ -16,7 +22,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app); 
 
-// Método de autenticación de usuario
+
 export const login_auth = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 
@@ -32,4 +38,7 @@ export function userstate() {
             window.location.href = '../index.html';
         }
     });
-}
+} 
+
+export const registerauth = (email, password) => 
+createUserWithEmailAndPassword(auth, email, password)

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="/Css/style3.css">
+</head>
+
+<body>
+    <div class="container-center text-center">
+        <div class="register-container">
+            <h2>Registrate</h2>
+                    <input type="text" id="nombre" placeholder="Nombre" required>
+                    <input type="text" id="apellido" placeholder="Apellido" required>
+
+                    <input type="email" id="emailR" placeholder="Correo electrónico" required>
+
+                    <input type="email" id="emailConfirm" placeholder="Confirmar correo electrónico" required>
+                    <div id="error-email"></div>
+
+                    <input type="password" id="contraseñaR" placeholder="Contraseña" required>
+
+                    <input type="password" id="contraseñaConfirm" placeholder="Confirmar contraseña" required>
+                <div id="error-contraseña"></div>
+                <div id="error"></div>
+                <br>
+                    <button type="submit" id="btn_register">Registrar</button></a>
+                <br>
+                <div class="banner" ></div>
+                <div>
+                    <a href="../index.html">Volver</a>
+                </div>   
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById("btn_register").addEventListener("click", async function (event) {
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var email = document.getElementById("emailR").value;
+            var emailConfirm = document.getElementById("emailConfirm").value;
+            var contraseña = document.getElementById("contraseñaR").value;
+            var contraseñaConfirm = document.getElementById("contraseñaConfirm").value;
+            var errorEmail = "";
+            var errorContra = "";
+            var errorEmpty = "";
+            var errorGeneral = document.getElementById("error");
+            var errorCorreo = document.getElementById("error-email");
+            var errorPassw = document.getElementById("error-contraseña");
+
+            errorGeneral.innerHTML = "";
+            errorCorreo.innerHTML = "";
+            errorPassw.innerHTML = "";
+
+            if (nombre === "" || apellido === "" || email === "" || emailConfirm === "" || contraseña === "" || contraseñaConfirm === "") {
+                errorEmpty += "Todos los campos son obligatorios.<br>";
+            } else if (email.indexOf("@") === -1) {
+                errorEmail += "El correo electrónico no es válido (Use el formato ejemplo@example.com)<br>";
+            } else if (email !== emailConfirm) {
+                errorEmail += "Los correos electrónicos no coinciden.<br>";
+            } else if (contraseña.length < 8 || contraseñaConfirm.length < 8) {
+                errorContra += "La contraseña debe tener al menos 8 caracteres.<br>";
+            } else if (contraseña !== contraseñaConfirm) {
+                errorContra += "Las contraseñas no coinciden.<br>";
+            }
+
+            if (errorEmpty !== "" || errorEmail !== "" || errorContra !== "") {
+                console.log("comprobando campos");
+                if (errorEmpty !== "") {
+                    errorGeneral.innerHTML = errorEmpty;
+                }
+                if (errorEmail !== "") {
+                    errorCorreo.innerHTML = errorEmail;
+                }
+                if (errorContra !== "") {
+                    errorPassw.innerHTML = errorContra;
+                }
+                event.preventDefault();
+            } else {
+                console.log("Datos Validos");
+                window.verificado = true;
+            }
+        });
+    </script>
+
+    <script type="module" src="../Services/register.js"></script>
+</body>
+
+</html>
