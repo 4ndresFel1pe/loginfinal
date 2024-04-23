@@ -57,11 +57,9 @@
             if (nombre === "" || apellido === "" || email === "" || emailConfirm === "" || contraseña === "" || contraseñaConfirm === "") {
                 errorEmpty += "Todos los campos son obligatorios.<br>";
             } else if (email.indexOf("@") === -1) {
-                errorEmail += "El correo electrónico no es válido (Use el formato ejemplo@example.com)<br>";
+                errorEmail += "El correo electrónico no es válido (Use el formato pepito@gmail.com.com)<br>";
             } else if (email !== emailConfirm) {
                 errorEmail += "Los correos electrónicos no coinciden.<br>";
-            } else if (contraseña.length < 8 || contraseñaConfirm.length < 8) {
-                errorContra += "La contraseña debe tener al menos 8 caracteres.<br>";
             } else if (contraseña !== contraseñaConfirm) {
                 errorContra += "Las contraseñas no coinciden.<br>";
             }
