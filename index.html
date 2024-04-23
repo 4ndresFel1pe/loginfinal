@@ -6,7 +6,7 @@
     <title>Login Web</title>
     <link rel="stylesheet" href="Css/style.css">
 </head>
-<body>
+<body> 
     <div class="wrapper">
         <div class="loginbox">
             <h1 class="title">Inicio</h1>
@@ -18,15 +18,19 @@
                 <input type="password" name="" id="password" class="input" placeholder="Contraseña">
                 <i class="fa-solid fa-lock"></i>
             </div>
+            <p id="error-message" style="color: red;"></p>
             <button class="submit" id="login_btn">Iniciar Sesión</button>
+            <div class="button-container">
+                <button class="submit google" id="google_login_btn">Google</button>
+                <button class="submit new-button" id="facebook_login_btn">Facebook</button>
+            </div>
             <p class="footer">¿No tienes cuenta? <a href="Templates/register.html" class="link"> Por favor, Registrate</a></p>
+            <p class="footer"><a href="Templates/forgot_password.html" class="link">¿Olvidaste tu contraseña?</a></p>
         </div>
         <div class="banner">
             <h1 class="wel_text">BIENVENIDO<br/></h1>         
         </div> 
     </div> 
     <script type="module" src="Services/autentication.js"></script>
-
-
 </body>
 </html>

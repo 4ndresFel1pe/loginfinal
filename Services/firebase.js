@@ -5,8 +5,12 @@ import {
     signInWithEmailAndPassword, 
     signOut, 
     onAuthStateChanged,
-    createUserWithEmailAndPassword
-     } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
+    createUserWithEmailAndPassword,
+    GoogleAuthProvider,
+    FacebookAuthProvider,
+    signInWithPopup,
+    sendPasswordResetEmail
+} from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyB7ylgSsGv-i0_OR00x5pSyhyuiqMHRCls",
@@ -20,8 +24,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth(app); 
-
+const auth = getAuth(app);
 
 export const login_auth = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
@@ -42,3 +45,19 @@ export function userstate() {
 
 export const registerauth = (email, password) => 
 createUserWithEmailAndPassword(auth, email, password)
+
+// Google
+export const googleProvider = new GoogleAuthProvider();
+
+export const signInWithGoogle = () => 
+    signInWithPopup(auth, googleProvider);
+
+// Facebook
+export const facebookProvider = new FacebookAuthProvider();
+
+export const signInWithFacebook = () => 
+    signInWithPopup(auth, facebookProvider);
+
+//recuperar
+export const recoverPassword = (email) => 
+    sendPasswordResetEmail(auth, email);

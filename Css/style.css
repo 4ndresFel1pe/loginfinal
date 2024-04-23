@@ -67,6 +67,36 @@ body{
     background: linear-gradient(45deg, #0ef, #c800ff);
 }
 
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.google, .new-button {
+    border: none;
+    outline: none;
+    width: 150px;
+    margin-top: 5px;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #0ef, #c800ff);
+}
+
+
+.google {
+    background-color: #4285F4;
+    color: white;
+}
+
+.new-button {
+    background-color: #34A853;
+    color: white;
+}
+
 .footer {
     margin-top: 30px;
     letter-spacing: 0.5px;
@@ -99,3 +129,4 @@ body{
     margin-top: -50px;
     line-height: 50px;
 }
+
