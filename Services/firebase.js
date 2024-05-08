@@ -11,6 +11,7 @@ import {
     FacebookAuthProvider,
     signInWithPopup,
     sendPasswordResetEmail,
+    sendEmailVerification
 } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
 
 const firebaseConfig = {
@@ -48,17 +49,24 @@ export function userstate() {
 export const registerauth = (email, password, cedula, fechaNacimiento, direccion, telefono) => 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Verificar si userCredential existe
             if (userCredential) {
                 // Signed in 
                 const user = userCredential.user;
-                // ...
+                // Enviar correo de verificación
+                sendEmailVerification(user)
+                    .then(() => {
+                        console.log('Correo de verificación enviado');
+                    })
+                    .catch((error) => {
+                        console.error('Error al enviar el correo de verificación', error);
+                    });
+        
                 return setDoc(doc(db, "users", user.uid), {
                     cedula: cedula,
                     fechaNacimiento: fechaNacimiento,
                     direccion: direccion,
                     telefono: telefono
-                }).then(() => userCredential); // Devuelve userCredential después de que se haya completado la operación de Firestore
+                }).then(() => userCredential); 
             } else {
                 console.error("Error: userCredential es undefined");
             }
@@ -66,9 +74,7 @@ export const registerauth = (email, password, cedula, fechaNacimiento, direccion
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            // ..
         });
-
 
 
 
