@@ -6,39 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
     <link rel="stylesheet" href="/Css/style3.css"> 
+    <style>
+        .column {
+            float: left;
+            width: 50%;
+        }
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container-center text-center">
         <div class="register-container">
             <h2>Registrate</h2>
+            <div class="row">
+                <div class="column">
                     <input type="text" id="nombre" placeholder="Nombre" required>
-                    <input type="text" id="apellido" placeholder="Apellido" required>
-
+                    <input type="text" id="cedula" placeholder="Cedula" required>
+                    <input type="date" id="fechaNacimiento" placeholder="Fecha de Nacimiento" required>
                     <input type="email" id="emailR" placeholder="Correo electrónico" required>
-
-                    <input type="email" id="emailConfirm" placeholder="Confirmar correo electrónico" required>
-                    <div id="error-email"></div>
-
                     <input type="password" id="contraseñaR" placeholder="Contraseña" required>
-
+                </div>
+                <div class="column">
+                    <input type="text" id="apellido" placeholder="Apellido" required>
+                    <input type="text" id="direccion" placeholder="Dirección" required>
+                    <input type="tel" id="telefono" placeholder="Teléfono" required>
+                    <input type="email" id="emailConfirm" placeholder="Confirmar correo electrónico" required>
                     <input type="password" id="contraseñaConfirm" placeholder="Confirmar contraseña" required>
-                <div id="error-contraseña"></div>
-                <div id="error"></div>
-                <br>
-                    <button type="submit" id="btn_register">Registrar</button></a>
-                <br>
-                <div class="banner" ></div>
-                <div>
-                    <a href="../index.html">Volver</a>
-                </div>   
+                </div>
+            </div>
+            <div id="error-contraseña"></div>
+            <div id="error"></div>
+            <div id="error-email"></div>
+            <br>
+            <button type="submit" id="btn_register">Registrar</button></a>
+            <br>
+            <div class="banner" ></div>
+            <div>
+                <a href="../index.html">Volver</a>
+            </div>   
         </div>
     </div>
 
     <script type="text/javascript">
         document.getElementById("btn_register").addEventListener("click", async function (event) {
+            var cedula = document.getElementById("cedula").value;
             var nombre = document.getElementById("nombre").value;
             var apellido = document.getElementById("apellido").value;
+            var fechaNacimiento = document.getElementById("fechaNacimiento").value;
+            var direccion = document.getElementById("direccion").value;
+            var telefono = document.getElementById("telefono").value;
             var email = document.getElementById("emailR").value;
             var emailConfirm = document.getElementById("emailConfirm").value;
             var contraseña = document.getElementById("contraseñaR").value;
@@ -54,7 +76,7 @@
             errorCorreo.innerHTML = "";
             errorPassw.innerHTML = "";
 
-            if (nombre === "" || apellido === "" || email === "" || emailConfirm === "" || contraseña === "" || contraseñaConfirm === "") {
+            if (cedula === "" || nombre === "" || apellido === "" || fechaNacimiento === "" || direccion === "" || telefono === "" || email === "" || emailConfirm === "" || contraseña === "" || contraseñaConfirm === "") {
                 errorEmpty += "Todos los campos son obligatorios.<br>";
             } else if (email.indexOf("@") === -1) {
                 errorEmail += "El correo electrónico no es válido (Use el formato pepito@gmail.com.com)<br>";

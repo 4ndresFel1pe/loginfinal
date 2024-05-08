@@ -1,5 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js';
+import { getFirestore, doc, setDoc} from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js';
 import { 
     getAuth, 
     signInWithEmailAndPassword, 
@@ -9,7 +10,7 @@ import {
     GoogleAuthProvider,
     FacebookAuthProvider,
     signInWithPopup,
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
 } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
 
 const firebaseConfig = {
@@ -25,6 +26,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const db = getFirestore(app); 
 
 export const login_auth = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
@@ -43,8 +45,34 @@ export function userstate() {
     });
 } 
 
-export const registerauth = (email, password) => 
-createUserWithEmailAndPassword(auth, email, password)
+export const registerauth = (email, password, cedula, fechaNacimiento, direccion, telefono) => 
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Verificar si userCredential existe
+            if (userCredential) {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                return setDoc(doc(db, "users", user.uid), {
+                    cedula: cedula,
+                    fechaNacimiento: fechaNacimiento,
+                    direccion: direccion,
+                    telefono: telefono
+                }).then(() => userCredential); // Devuelve userCredential después de que se haya completado la operación de Firestore
+            } else {
+                console.error("Error: userCredential es undefined");
+            }
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+        });
+
+
+
+
+        
 
 // Google
 export const googleProvider = new GoogleAuthProvider();
@@ -61,3 +89,4 @@ export const signInWithFacebook = () =>
 //recuperar
 export const recoverPassword = (email) => 
     sendPasswordResetEmail(auth, email);
+

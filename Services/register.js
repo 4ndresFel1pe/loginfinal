@@ -3,13 +3,9 @@ import { registerauth } from "../Services/firebase.js"
 const save_auth = document.getElementById('btn_register')
 
 function validarContraseña(contraseña) {
-    // Debe contener al menos un número
     const tieneNumero = /\d/.test(contraseña);
-    // Debe contener al menos una letra mayúscula
     const tieneMayuscula = /[A-Z]/.test(contraseña);
-    // Debe contener al menos un carácter especial
     const tieneCaracterEspecial = /[!@#$%^&*]/.test(contraseña);
-    // Debe tener al menos 8 caracteres de longitud
     const tieneLongitudValida = contraseña.length >= 8;
 
     return tieneNumero && tieneMayuscula && tieneCaracterEspecial && tieneLongitudValida;
@@ -19,20 +15,29 @@ async function register() {
     if (window.verificado === true) {
         const emailInput = document.getElementById('emailR').value;
         const contraseñaInput = document.getElementById('contraseñaR').value;
+        const cedulaInput = document.getElementById('cedula').value;
+        const fechaNacimientoInput = document.getElementById('fechaNacimiento').value;
+        const direccionInput = document.getElementById('direccion').value;
+        const telefonoInput = document.getElementById('telefono').value;
 
         if (!validarContraseña(contraseñaInput)) {
             alert("La contraseña debe contener al menos un número, una letra mayúscula, un carácter especial como (!@#$%^&*) y tener al menos 8 caracteres de longitud.");
             return;
         }
 
-        const validar = registerauth(emailInput, contraseñaInput);
+        const validar = registerauth(emailInput, contraseñaInput, cedulaInput, fechaNacimientoInput, direccionInput, telefonoInput);
         const verificar = await validar
 
-            .then((verificar) => {
+        .then((verificar) => {
+            if (verificar) {
                 alert("El usuario se registro exitosamente..");
                 const user = verificar.user;
                 window.location.href = "../index.html";
-            })
+            } else {
+                console.error("Error: verificar es undefined");
+            }
+        })
+        
 
             .catch((error) => {
                 if (error.code === 'auth/email-already-in-use') {
@@ -46,6 +51,7 @@ async function register() {
             });
     }
 }
+
 
 
 window.addEventListener('DOMContentLoaded', () => {

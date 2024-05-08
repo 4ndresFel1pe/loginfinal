@@ -14,7 +14,6 @@ body {
     align-content: center;
 }
 
-
 ::-webkit-input-placeholder {
     color: #eee;
 }
@@ -25,7 +24,7 @@ body {
 
 .register-container {
     position: relative;
-    width: 400px;
+    width: 700px;
     display: flex; 
     flex-direction: column; 
     align-items: center; 
@@ -36,7 +35,6 @@ body {
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
-
 
 .register-container h2 {
     font-size: 35px;
@@ -49,26 +47,22 @@ body {
     background: none;
     width: 250px;
     margin-top: 20px;
-    margin-left: -100px;
     padding: 10px;
     border-bottom: 2px solid rgb(218, 221, 222);
     font-size: 17px;
     color: #0ef;
 }
 
-.register-container input[type="email"] {
-    margin-top: 40px; 
-    
-}
-
+.register-container input[type="email"],
 .register-container input[type="password"] {
-    margin-top: 40px;
+    margin-top: 20px; 
+    width: 250px;
 }
 
 .register-container button {
     border: none;
     outline: none;
-    width: 288px;
+    width: 250px;
     margin-top: 25px;
     padding: 10px 0;
     font-size: 20px;
@@ -82,7 +76,6 @@ body {
     color: #0ef;
     text-decoration: none;
     border-bottom: 2px solid rgb(46, 176, 220);
-    
 }
 
 #error-email,
@@ -90,8 +83,8 @@ body {
 #error {
     color: red;
     margin-top: 10px;
-    margin-left: -100px;
 }
+
 .banner{
     position: absolute;
     top: 0;
