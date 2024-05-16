@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="/Css/styles.css">
+    <link rel="stylesheet" href="/Css/styles_admin.css">
 </head>
 <body>
     <div class="container">
@@ -18,9 +18,11 @@
             <input type="text" id="direccion" placeholder="Dirección">
             <input type="text" id="telefono" placeholder="Teléfono">
             
-            <button class="boton" type="submit">Crear usuario</button>
         </form>
-        <button class="boton" id="boton_salir">SALIR</button>
+        <button class="boton" type="submit" id="crear_usuario_boton">Crear usuario</button>
+        <button class="boton" type="submit" id="mostrar_usuarios">Mostrar Usuarios</button>
+        <button class="boton" id="boton_salir">Salir</button> 
+        <button class="boton_eliminar" type="submit" id="eliminar_cuenta">Eliminar Cuenta</button>
     </div>   
     <script type="module" src="/Services/home_admin.js"></script>
 </body>

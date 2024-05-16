@@ -19,7 +19,7 @@ body {
 .container {
     position: relative;
     width: 700px;
-    height: auto; /* Cambia '65vh' por 'auto' */
+    height: 65vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,9 +27,10 @@ body {
     box-shadow: 0 0 50px 0 #00a6bc;
     margin: auto;
     overflow: hidden;
-    border-radius: 10px; 
+    border-radius: 10px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); 
+    
 }
 
 h3 {
@@ -39,6 +40,17 @@ h3 {
     text-align: center;
 }
 
+form { 
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
 form input {
     border: none;
     outline: none;
@@ -46,12 +58,17 @@ form input {
     width: 250px;
     margin-top: 20px;
     padding: 10px;
+    margin-right: 25px; 
+    margin-left: 25px;
     border-bottom: 2px solid rgb(218, 221, 222);
     font-size: 17px;
-    color: #0ef;
+    color: #0ef;  
+    
 }
 
-.boton {
+form button{ 
+
+    
     border: none;
     outline: none;
     width: 250px;
@@ -63,9 +80,32 @@ form input {
     cursor: pointer;
     background: linear-gradient(45deg, #0ef, #c800ff);
     color: #fff;
-    text-align: center;
+
+
+}
+
+.boton {
+    
+    border: none;
+    outline: none;
+    width: 250px;
+    margin-top: 25px;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #0ef, #c800ff);
+    color: #fff;
+    
 }
 
 #boton_salir:hover {
     background-color: #74aee4;
+}
+.boton_eliminar {
+    background: none;
+    border: none;
+    color: #e02828; /* Cambia esto al color que desees para el texto */
+    cursor: pointer;
 }
