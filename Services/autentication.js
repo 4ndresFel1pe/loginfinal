@@ -29,9 +29,9 @@ async function validar(){
 
         // Verificar si el usuario es administrador
         if (userSnap.exists() && userSnap.data().rol === true) {
-            window.location.href = "/Templates/home_admin.html"
+            window.location.href = "../Templates/home_admin.html"
         } else {
-            window.location.href = "/Templates/home.html"
+            window.location.href = "../Templates/home.html"
         }
     } catch (error) {
         console.log("Sesion "+ email + " not validation")
