@@ -19,6 +19,7 @@ async function register() {
         const fechaNacimientoInput = document.getElementById('fechaNacimiento').value;
         const direccionInput = document.getElementById('direccion').value;
         const telefonoInput = document.getElementById('telefono').value;
+        
 
         if (!validarContraseña(contraseñaInput)) {
             alert("La contraseña debe contener al menos un número, una letra mayúscula, un carácter especial como (!@#$%^&*) y tener al menos 8 caracteres de longitud.");
@@ -35,6 +36,7 @@ async function register() {
                 window.location.href = "../index.html";
             } else {
                 console.error("Error: verificar es undefined");
+                alert("no se pudo registrar"); 
             }
         })
         

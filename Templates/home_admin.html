@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/Css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h3>BIENVENIDO ADMINISTRADOR</h3>
+        <br>
+        <form id="crear_usuario_form">
+            <input type="email" id="email" placeholder="Correo electrónico">
+            <input type="password" id="password" placeholder="Contraseña">
+            <input type="text" id="cedula" placeholder="Cédula">
+            <input type="date" id="fechaNacimiento">
+            <input type="text" id="direccion" placeholder="Dirección">
+            <input type="text" id="telefono" placeholder="Teléfono">
+            
+            <button class="boton" type="submit">Crear usuario</button>
+        </form>
+        <button class="boton" id="boton_salir">SALIR</button>
+    </div>   
+    <script type="module" src="/Services/home_admin.js"></script>
+</body>
+</html>

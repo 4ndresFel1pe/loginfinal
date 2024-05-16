@@ -11,7 +11,8 @@ import {
     FacebookAuthProvider,
     signInWithPopup,
     sendPasswordResetEmail,
-    sendEmailVerification
+    sendEmailVerification, 
+    deleteUser
 } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js';
 
 const firebaseConfig = {
@@ -46,7 +47,7 @@ export function userstate() {
     });
 } 
 
-export const registerauth = (email, password, cedula, fechaNacimiento, direccion, telefono) => 
+export const registerauth = (email, password, cedula, fechaNacimiento, direccion, telefono, rol = false) => 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             if (userCredential) {
@@ -65,7 +66,8 @@ export const registerauth = (email, password, cedula, fechaNacimiento, direccion
                     cedula: cedula,
                     fechaNacimiento: fechaNacimiento,
                     direccion: direccion,
-                    telefono: telefono
+                    telefono: telefono,
+                    rol: rol  // Aquí está el rol, que será 'false' por defecto.
                 }).then(() => userCredential); 
             } else {
                 console.error("Error: userCredential es undefined");
@@ -75,7 +77,6 @@ export const registerauth = (email, password, cedula, fechaNacimiento, direccion
             const errorCode = error.code;
             const errorMessage = error.message;
         });
-
 
 
         
@@ -96,3 +97,6 @@ export const signInWithFacebook = () =>
 export const recoverPassword = (email) => 
     sendPasswordResetEmail(auth, email);
 
+export {db}; 
+export { deleteUser };
+export { auth };
