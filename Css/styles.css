@@ -9,7 +9,7 @@ body{
     width: 100vw;
     height: 100vh;
     background: #081b29;
-    display: flex; /* Cambia 'grid' por 'flex' */
+    display: flex; 
     justify-content: center;
     align-items: center; 
     margin: 0;
@@ -18,7 +18,7 @@ body{
 
 .container {
     position: relative;
-    width: 25%; /* Ajusta este valor según tus necesidades */
+    width: 25%; 
     height: 65vh;
     display: grid;
     grid-template-columns: 1fr;

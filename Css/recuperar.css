@@ -14,19 +14,19 @@ body {
     align-items: center;
 }
 
-.wrapper {
+.container-center {
     position: relative;
-    width: 750px;
-    height: 75vh;
+    width: 500px;
+    height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 3px solid #ffffff;
-    box-shadow: 0 0 50px 0 #00a6bc;
-    border-radius: 20px;
+    box-shadow: 0 0 50px 0 #00a6bc; 
+    border-radius: 5%;
 }
 
-.loginbox {
+.register-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,77 +34,45 @@ body {
     width: 100%;
 }
 
-.title {
+h2 {
     font-size: 35px;
-    margin-top: 0px;
 }
 
-.input {
+input[type=email] {
     border: none;
     outline: none;
     background: none;
     width: 260px;
     margin-top: 20px; /* Reducido de 40px a 20px */
-    padding-right: 20px;
+    padding-right: 10px;
     font-size: 17px; 
     color: #0ef;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 2px solid #eee;
-    margin-right: 30px;
 }
 
-.submit {
+button[type=submit] {
     border: none;
     outline: none;
     width: 288px;
-    margin-top: 10px;
+    margin-top: 25px;
     padding: 10px 0;
     font-size: 20px;
     border-radius: 40px;
     letter-spacing: 1px;
     cursor: pointer;
     background: linear-gradient(45deg, #0ef, #c800ff);
+    color: #fff;
 }
 
-.footer {
-    margin-top: 5px;
+div {
+    margin-top: 10px; /* Reducido de 30px a 10px */
     letter-spacing: 0.5px;
     font-size: 14px;
 }
 
-.link {
+a {
     color: #0ef;
     text-decoration: none;
-    margin-top: 10px;
 }
 
-.banner{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 100%;
-    background: linear-gradient(to right, #0ef, #c800ff);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%);
-    padding-right: 5px;
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    border-radius: 20px;
-}
-
-.row {
-    display: flex;
-    justify-content: center; /* Cambiado de space-between a center */
-    width: 100%; 
-    padding: 0 50px; /* Reducido de 100px a 50px */
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    margin: 0 10px; /* Aumentado de 0px a 10px */
-}

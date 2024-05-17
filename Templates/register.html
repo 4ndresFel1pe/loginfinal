@@ -5,54 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
-    <link rel="stylesheet" href="../Css/style3.css"> 
-    <style>
-        .column {
-            float: left;
-            width: 50%;
-        }
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    </style>
+    <link rel="stylesheet" href="/Css/style3.css"> 
 </head>
 
 <body>
-    <div class="container-center text-center">
-        <div class="register-container">
-            <h2>Registrate</h2>
+    <div class="wrapper">
+        <div class="loginbox">
+            <h2 class="title">Registrate</h2>
             <div class="row">
                 <div class="column">
-                    <input type="text" id="nombre" placeholder="Nombre" required>
-                    <input type="text" id="cedula" placeholder="Cedula" required>
-                    <input type="date" id="fechaNacimiento" placeholder="Fecha de Nacimiento" required>
-                    <input type="email" id="emailR" placeholder="Correo electrónico" required>
-                    <input type="password" id="contraseñaR" placeholder="Contraseña" required>
+                    <input class="input" type="text" id="nombre" placeholder="Nombre" required>
+                    <input class="input" type="text" id="cedula" placeholder="Cedula" required>
+                    <input class="input" type="date" id="fechaNacimiento" placeholder="Fecha de Nacimiento" required>
+                    <input class="input" type="email" id="emailR" placeholder="Correo electrónico" required>
+                    <input class="input" type="password" id="contraseñaR" placeholder="Contraseña" required>
                 </div>
                 <div class="column">
-                    <input type="text" id="apellido" placeholder="Apellido" required>
-                    <input type="text" id="direccion" placeholder="Dirección" required>
-                    <input type="tel" id="telefono" placeholder="Teléfono" required>
-                    <input type="email" id="emailConfirm" placeholder="Confirmar correo electrónico" required>
-                    <input type="password" id="contraseñaConfirm" placeholder="Confirmar contraseña" required>
+                    <input class="input" type="text" id="apellido" placeholder="Apellido" required>
+                    <input class="input" type="text" id="direccion" placeholder="Dirección" required>
+                    <input class="input" type="tel" id="telefono" placeholder="Teléfono" required>
+                    <input class="input" type="email" id="emailConfirm" placeholder="Confirmar correo electrónico" required>
+                    <input class="input" type="password" id="contraseñaConfirm" placeholder="Confirmar contraseña" required>
                 </div>
             </div>
             <div id="error-contraseña"></div>
             <div id="error"></div>
             <div id="error-email"></div>
             <br>
-            <button type="submit" id="btn_register">Registrar</button></a>
+            <button class="submit" type="submit" id="btn_register">Registrar</button>
             <br>
-            <div class="banner" ></div>
-            <div>
-                <a href="../index.html">Volver</a>
+            <div class="banner"></div>
+            <div class="footer">
+                <a class="link" href="../index.html">Volver</a>
             </div>   
         </div>
     </div>
-
     <script type="text/javascript">
         document.getElementById("btn_register").addEventListener("click", async function (event) {
             var cedula = document.getElementById("cedula").value;
