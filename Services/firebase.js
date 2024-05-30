@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js';
-import { getFirestore, doc, setDoc} from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js';
+import { getFirestore, doc, setDoc, deleteDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js';
 import { 
     getAuth, 
     signInWithEmailAndPassword, 
@@ -34,7 +34,7 @@ export const login_auth = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 
 export const logout = () =>
-    signOut(auth);
+    signOut(auth); 
   
 export function userstate() {
     onAuthStateChanged(auth, (user) => {
@@ -47,7 +47,7 @@ export function userstate() {
     });
 } 
 
-export const registerauth = (email, password, cedula, fechaNacimiento, direccion, telefono, rol = false) => 
+export const registerauth = (email, password, cedula, fechaNacimiento, direccion, telefono,rol = false) => 
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             if (userCredential) {
@@ -78,9 +78,6 @@ export const registerauth = (email, password, cedula, fechaNacimiento, direccion
             const errorMessage = error.message;
         });
 
-
-        
-
 // Google
 export const googleProvider = new GoogleAuthProvider();
 
@@ -93,10 +90,10 @@ export const facebookProvider = new FacebookAuthProvider();
 export const signInWithFacebook = () => 
     signInWithPopup(auth, facebookProvider);
 
-//recuperar
+// Recuperar contraseña
 export const recoverPassword = (email) => 
     sendPasswordResetEmail(auth, email);
 
-export {db}; 
-export { deleteUser };
+export { db };
+export { deleteUser, deleteDoc, updateDoc }; 
 export { auth };

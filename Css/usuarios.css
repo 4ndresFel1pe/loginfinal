@@ -19,7 +19,7 @@ body {
 .container {
     position: relative;
     width: 700px;
-    height: 65vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,9 +31,10 @@ body {
     padding: 20px;
     background: rgba(0, 0, 0, 0.5); 
 } 
+
 .user-element {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 2fr 1fr 1fr; /* Dos columnas para datos del usuario, una para cada botón */
     gap: 10px; 
     border: 1px solid #ffffff;
     padding: 10px;
@@ -41,10 +42,100 @@ body {
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.1);
 }
-.value-element {
-    border: 1px solid #ffffff;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+
+.user-element div {
+    display: flex;
+    align-items: center;
+}
+
+.edit-form-container {
+    grid-column: 1 / 4;
+    margin-top: 10px;
     background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-form label {
+    margin-bottom: 5px;
+}
+
+.edit-form input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.edit-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.save-button {
+    background-color: #00a6bc;
+    color: #fff;
+}
+
+.save-button:hover {
+    background-color: #007a8c;
+}
+
+.cancel-button {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.cancel-button:hover {
+    background-color: #c0392b;
+}
+
+/* Estilos para los botones */
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.edit-button {
+    background-color: #00a6bc;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.edit-button:hover {
+    background-color: #007a8c;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+a {
+    color: #00a6bc;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+a:hover {
+    text-decoration: underline;
 }
